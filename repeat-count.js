@@ -7,3 +7,17 @@ for (var i = 0; i < a.length; ++i) {
     }
 }
 console.log(b)
+
+
+var a = [1, 22, 45, 22, 1, 22, 33, 4, 4];
+var keymap = {};
+for (var i = 0; i < a.length; ++i) {
+    if (keymap[a[i]]) {
+        keymap[a[i]] += 1;
+    } else {
+        keymap[a[i]] = 1;
+    }
+}
+var b = Object.getOwnPropertyNames(keymap);
+var c = b.map(Number);
+
