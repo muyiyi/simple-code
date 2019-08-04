@@ -9,17 +9,13 @@ for (var i = 0; i < a.length; ++i) {
 console.log(b)
 
 
-function repeat() {
+function repeat(a) {
     var keymap = {};
     for (var i = 0; i < a.length; ++i) {
-        if (keymap[a[i]]) {
-            keymap[a[i]] += 1;
-        } else {
+        if (!keymap[a[i]]) {
             keymap[a[i]] = 1;
         }
     }
-    var b = Object.getOwnPropertyNames(keymap);
-    var c = b.map(Number);
-    return c
+    return Object.keys(keymap).map(Number);
 }
 repeat([1, 22, 45, 22, 1, 22, 33, 4, 4])

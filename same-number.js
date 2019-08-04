@@ -1,28 +1,16 @@
-var a = [1, 22, 45, 22, 1, 22, 33, 4, 4];
-var b = [2, 7, 45, 22, 4, 9];
-var c = {};
-var d = [];
-for (var i = 0; i < a.length; ++i) {
-    if (d.indexOf(a[i]) == -1) {
-        d.push(a[i]);
-    } 
-}
-var e = b.concat(d);
-function same(e) {
-    for (var j = 0; j < e.length; ++j) {
-        if (c[e[j]]) {
-            c[e[j]] += 1;
-        } else {
-            c[e[j]] = 1;
+function same(arr1,arr2) {
+    var keymap = {};
+    var newarr = [];
+    for (var i = 0; i < arr1.length; ++i) {
+        if (!keymap[arr1[i]]) {
+            keymap[arr1[i]] = 1;
         }
     }
-    var s = [];
-    for (var k in c) {
-        if (c[k] !== 1) {
-            s.push(k);
+    for (var j = 0; j < arr2.length; ++j) {
+        if (keymap[arr2[j]]) {
+            newarr.push(arr2[j]);
         }
     }
-    var z = s.map(Number);
-    return z;
+    return newarr;
 }
-same(e)
+same([1, 22, 45, 22, 1, 22, 33, 4, 4],[2, 7, 45, 22, 4, 9])
